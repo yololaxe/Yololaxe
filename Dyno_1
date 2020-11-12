@@ -1,0 +1,6 @@
+controls = {
+    'z': (0,-1), #monter
+    'q': (-1,0), #gauche
+    's': (0,1),  #descendre
+    'd': (1,0)   #gauche
+    }
