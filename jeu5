@@ -1,0 +1,54 @@
+from tkinter import *
+from random import randint
+import time
+from snake_5 import *
+
+controls = {
+    'z': (0,-1), #monter
+    'q': (-1,0), #gauche
+    's': (0,1),  #descendre
+    'd': (1,0)   #gauche
+    }
+
+def pilotage(event):
+        if event.char in controls: 
+            snake.direction = controls[event.char]
+
+def animer():
+    snake.déplacer()
+    x,y = snake.tete
+    if not(snake.dead) and (0<=x<jeu.LARGEUR) and (0<=y<jeu.HAUTEUR):
+        if x//jeu.STEP==apple.x and y//jeu.STEP==apple.y:
+            jeu.score += 1
+            v.set(f"score : {jeu.score}")
+            snake.growth()
+            apple.placer()
+        w.delete(ALL)
+        w.create_rectangle(apple.x*jeu.STEP,apple.y*jeu.STEP,(apple.x+1)*jeu.STEP,(apple.y+1)*jeu.STEP,fill="red", outline="")
+        for cell in snake.corps:
+            xc,yc = cell
+            w.create_rectangle(xc,yc,xc+jeu.STEP,yc+jeu.STEP,fill="green", outline="")
+        root.after(jeu.FRAME_RATE,animer)    
+    else:
+        w.delete(ALL)
+        v.set("GAME OVER")
+    
+root = Tk()
+root.title("z-q-s-d pour diriger")
+jeu = Game(800, 600, 40, 200)
+s = jeu.STEP
+snake = Serpent([
+    [(jeu.LARGEUR//(2*s))*s,s],
+    [(jeu.LARGEUR//(2*s))*s,0], 
+    [(jeu.LARGEUR//(2*s))*s-s,0]], (0,1),s) 
+apple = Pomme(jeu)
+v = StringVar()
+v.set('0,0')
+w = Canvas(root, width=jeu.LARGEUR, height=jeu.HAUTEUR)
+root.bind("<Key>", pilotage) 
+#un event touche appuyée déclenche l'appel de pilotage()
+w.pack()
+Label(root, textvariable=v).pack()
+v.set("")
+animer()
+root.mainloop()
