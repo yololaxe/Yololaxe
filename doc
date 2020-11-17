@@ -1,9 +1,9 @@
 Dinosaure :
 3 parties :
-  Dinosaure : saut + retombe + gravité + collision 
-  Décor : spawn_cactus + spawn_oiseau + spawn_empty
+  Dinosaure : saut = {monter + retombe + gravité} + collision 
+  Décor : spawn_cactus + spawn_oiseau + spawn_empty + sol
   interface : lancement + systeme de score + GAME OVER
   
-SAUT : 
+Saut : 
 IF touche_espace appuyé :
   dyno vi
