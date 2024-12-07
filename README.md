@@ -15,9 +15,9 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 Yololaxe (MORAGNY Alban)
-IT Student specialise in Back-end developpement and beginner in DataScience / IA
---> Developper C#, Java, Flutter 
---> Admin, Developper of Renblood & Evonia
---> Minecraft Java developper since 2017
+IT Student specialized in Back-end development and beginner in DataScience / IA
+--> Developer C#, Java, Flutter 
+--> Admin & Developer of Renblood & Evonia
+--> Minecraft Java developer since 2017
 --> LINKEDIN :  https://www.linkedin.com/in/alban-moragny-758714291/
 
